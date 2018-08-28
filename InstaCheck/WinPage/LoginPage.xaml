@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="InstaCheck.WinPage.LoginPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:InstaCheck.WinPage"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             TextOptions.TextFormattingMode="Ideal" 
+             TextOptions.TextRenderingMode="Auto"        
+             Background="{DynamicResource MaterialDesignPaper}"
+             FontFamily="{DynamicResource MaterialDesignFont}"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="300">
+    <UserControl.Resources>
+        <Style TargetType="TextBlock" x:Key="TextBlock">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontFamily" Value="Impact"/>
+            <Setter Property="Background" Value="{DynamicResource MaterialDesignPaper}"/>
+            <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <materialDesign:TransitioningContent  x:Name="TransitioningContent" OpeningEffect="{materialDesign:TransitionEffect SlideInFromRight , Duration=0:0:0:1}" >
+            <StackPanel VerticalAlignment="Center">
+                <TextBlock Text="Login" Style="{StaticResource TextBlock}" Margin="5 0 5 10"/>
+                <TextBox x:Name="UserLogin" Margin="5 0 5 10"/>
+                <TextBlock Text="Password" Style="{StaticResource TextBlock}" Margin="5 0 5 10"/>
+                <PasswordBox x:Name="Password" materialDesign:HintAssist.Hint="PASSWORD" Style="{DynamicResource MaterialDesignFloatingHintPasswordBox}" Margin="5 0 5 10"/>
+                <Button x:Name="Autorithation" Content="LogIn" Margin="10 0 10 10" Click="Autorithation_OnClick"/>
+            </StackPanel>
+        </materialDesign:TransitioningContent>
+    </Grid>
+</UserControl>
