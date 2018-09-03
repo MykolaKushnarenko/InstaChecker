@@ -41,7 +41,6 @@ namespace InstaCheck.WinPage
             FollowersCount.Text = userinfo.Value.FollowerCount.ToString();
             FollowingCount.Text = userinfo.Value.FollowingCount.ToString();
             ProfilPhoto.Source = BitmapFrame.Create(new Uri(userinfo.Value.ProfilePicUrl));
-            
             //IResult<InstaUser> user = await _instaApi.GetUserAsync("aeroflot");
             //IResult<InstaUserInfo> info = await _instaApi.GetUserInfoByIdAsync(user.Value.Pk);
             //IResult<InstaUserShortList> folows = await _instaApi.GetUserFollowersAsync(_userSession.UserName, PaginationParameters.Empty);
