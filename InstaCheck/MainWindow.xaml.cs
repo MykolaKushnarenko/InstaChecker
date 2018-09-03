@@ -35,10 +35,15 @@ namespace InstaCheck
         public MainWindow()
         {
             InitializeComponent();
-            GridContent.Children.Add(new LoginPage(ref _userSession, ref _instaApi, UseBlereEffect, CancleBlereEffect));
+            GridContent.Children.Add(new LoginPage(ref _userSession, ref _instaApi, UseBlereEffect, CancleBlereEffect, IsLogin, SetInstaApi, SetUserSessionData));
             
         }
 
+        private void IsLogin()
+        {
+            GridContent.Children.Clear();
+            if (_instaApi != null) GridContent.Children.Add(new UserProfil(ref _instaApi, ref _userSession));
+        }
         private void UseBlereEffect()
         {
             blurEffect = new BlurEffect();
@@ -49,6 +54,16 @@ namespace InstaCheck
         {
             blurEffect.Radius = 0;
             Effect = blurEffect;
+        }
+
+        private void SetInstaApi(IInstaApi resultAfterLogin)
+        {
+            _instaApi = resultAfterLogin;
+        }
+
+        private void SetUserSessionData(UserSessionData userSessionData)
+        {
+            _userSession = userSessionData;
         }
 
         private void NotificationToas(string UnffolowUserName)

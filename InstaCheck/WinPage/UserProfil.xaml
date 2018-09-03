@@ -27,21 +27,21 @@
             <StackPanel>
                 <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Left" Orientation="Horizontal">
                     <materialDesign:Card Padding="0" Margin="10">
-                        <Image MaxWidth="100" MaxHeight="100" Width="100" Height="100" Margin="5"/>
+                        <Image x:Name="ProfilPhoto" MaxWidth="100" MaxHeight="100" Width="100" Height="100" Margin="5"/>
                     </materialDesign:Card>
                     <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="20">
                         <TextBlock Text="kushnarenkoff"/>
                         <StackPanel Orientation="Horizontal" Margin="10">
                             <TextBlock Text="Post:"/>
-                            <TextBlock Text="100" Margin="10 0 0 0"/>
+                            <TextBlock x:Name="PostCount" Text="100" Margin="10 0 0 0"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="10">
                             <TextBlock Text="Followers:"/>
-                            <TextBlock Text="100" Margin="10 0 0 0 "/>
+                            <TextBlock x:Name="FollowersCount" Text="100" Margin="10 0 0 0 "/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="10">
                             <TextBlock Text="Following:"/>
-                            <TextBlock Text="100" Margin="10 0 0 0"/>
+                            <TextBlock x:Name="FollowingCount" Text="100" Margin="10 0 0 0"/>
                         </StackPanel>
                     </StackPanel>
 

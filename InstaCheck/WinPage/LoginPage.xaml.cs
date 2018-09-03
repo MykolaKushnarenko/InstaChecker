@@ -27,28 +27,36 @@ namespace InstaCheck.WinPage
     {
         private UserSessionData _userSession;
         private IInstaApi _instaApi;
-        private Action blureAction;
-        private Action cancelBlure;
-        public LoginPage(ref UserSessionData user, ref IInstaApi instaApi, Action methdod, Action cancelBlureAction)
+        private Action _blureAction;
+        private Action _cancelBlure;
+        private Action _close;
+        private Action<IInstaApi> _setInstaApi;
+        private Action<UserSessionData> _setUserSession;
+        public LoginPage(ref UserSessionData user, ref IInstaApi instaApi, Action methdod, Action cancelBlureAction, Action closeLoadung, Action<IInstaApi> setInstaApi, Action<UserSessionData> setUSerUserSession)
         {
             InitializeComponent();
             _userSession = user;
             _instaApi = instaApi;
-            blureAction = methdod;
-            cancelBlure = cancelBlureAction;
+            _blureAction = methdod;
+            _cancelBlure = cancelBlureAction;
+            _close = closeLoadung;
+            _setInstaApi = setInstaApi;
+            _setUserSession = setUSerUserSession;
         }
 
         private async void Autorithation_OnClick(object sender, RoutedEventArgs e)
         {
             if (FieldIsNotNull())
             {
-                blureAction();
+                _blureAction();
                 Loading load = new Loading();
                 load.Show();
                 bool result = await Login(UserLogin.Text, Password.Password);
-                cancelBlure();
+                _setInstaApi(_instaApi);
+                _setUserSession(_userSession);
+                _cancelBlure();
                 load.Close();
-                
+                _close();
 
             }
            
